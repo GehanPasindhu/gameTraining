@@ -1,0 +1,40 @@
+paths:
+  /registrations:
+    post:
+      tags:
+        - Registrations
+      summary: Register a student for a course
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - full_name
+                - email
+                - courseId
+              properties:
+                full_name:
+                  type: string
+                email:
+                  type: string
+                phone_number:
+                  type: string
+                message:
+                  type: string
+                courseId:
+                  type: integer
+      responses:
+        '200':
+          description: Registration created
+
+    get:
+      tags:
+        - Registrations
+      summary: Get all registrations (admin only)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of registrations

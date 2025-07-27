@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: Game Development Training Center API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000/api
+
+paths:
+  /admin/create:
+    $ref: './paths/admin.yaml#/paths/~1admin~1create'
+
+  /login:
+    $ref: './paths/admin.yaml#/paths/~1login'
+
+  /courses:
+    $ref: './paths/courses.yaml#/paths/~1courses'
+
+  /courses/{id}:
+    $ref: './paths/courses.yaml#/paths/~1courses~1{id}'
+
+  /registrations:
+    $ref: './paths/registrations.yaml#/paths/~1registrations'
+
+  /contacts:
+    $ref: './paths/contacts.yaml#/paths/~1contacts'
+
+components:
+  $ref: './components.yaml#/components'

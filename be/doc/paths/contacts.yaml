@@ -1,0 +1,38 @@
+paths:
+  /contacts:
+    post:
+      tags:
+        - Contacts
+      summary: Submit a contact message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - full_name
+                - email
+                - message
+              properties:
+                full_name:
+                  type: string
+                email:
+                  type: string
+                phone_number:
+                  type: string
+                message:
+                  type: string
+      responses:
+        '200':
+          description: Contact message submitted
+
+    get:
+      tags:
+        - Contacts
+      summary: Get all contact messages (admin only)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of messages

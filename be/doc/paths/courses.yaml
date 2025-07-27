@@ -1,0 +1,106 @@
+paths:
+  /courses:
+    get:
+      tags:
+        - Courses
+      summary: Get all courses
+      responses:
+        '200':
+          description: List of courses
+
+    post:
+      tags:
+        - Courses
+      summary: Create a new course (admin only)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - description
+                - duration
+              properties:
+                title:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+                duration:
+                  type: string
+      responses:
+        '200':
+          description: Course created
+
+  /courses/{id}:
+    get:
+      tags:
+        - Courses
+      summary: Get a course by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Course details
+        '404':
+          description: Course not found
+
+    delete:
+      tags:
+        - Courses
+      summary: Delete a course (admin only)
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Course deleted
+        '404':
+          description: Course not found
+
+    put:
+      summary: Update course details
+      tags:
+        - Courses
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                duration:
+                  type: string
+                imageUrl:
+                  type: string
+      responses:
+        200:
+          description: Course updated successfully
+        404:
+          description: Course not found
