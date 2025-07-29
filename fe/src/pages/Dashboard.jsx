@@ -10,7 +10,7 @@ const Dashboard = () => {
         {
           key: '1',
           label: 'Course Details',
-          children:  (<></>),
+          children:  (<AdminCourses/>),
         },
         {
           key: '2',

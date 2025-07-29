@@ -4,6 +4,12 @@ const BASE_URL = import.meta.env.VITE_API_PATH;
 
 //get courses
 export const fetchCourses = () => axios.get(`${BASE_URL}/courses`);
+export const addCourse = (data, token) =>
+  axios.post(`${BASE_URL}/courses`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
 //registration api
 export const registerCourse = (data) =>
