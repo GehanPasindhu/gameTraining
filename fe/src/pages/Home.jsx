@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "../components/common/Navbar";
 import { fetchCourses } from "../utils/api";
+import Footer from "../components/common/Footer";
 
 function Home() {
   const [courses, setCourses] = useState([]);
@@ -20,6 +21,7 @@ function Home() {
   }, []);
 
   return (
+    <>
     <div className="min-h-screen bg-black text-white flex flex-col">
       <section className="relative h-screen bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] text-white px-6 md:px-20 overflow-hidden -mx-20">
         <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
@@ -114,8 +116,10 @@ function Home() {
         </section>
       </main>
 
-      
     </div>
+
+    <Footer/>
+    </>
   );
 }
 

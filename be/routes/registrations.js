@@ -4,8 +4,8 @@ const { Registration, Course } = require('../models');
 
 // Public: Register a student
 router.post('/', async (req, res) => {
-  const { full_name, email, phone_number, message, courseId } = req.body;
-  const registration = await Registration.create({ full_name, email, phone_number, message, courseId });
+  const { full_name, email, phone_number, message, CourseId } = req.body;
+  const registration = await Registration.create({ full_name, email, phone_number, message, CourseId });
   res.json(registration);
 });
 
