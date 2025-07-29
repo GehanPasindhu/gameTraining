@@ -6,10 +6,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 function CourseCard({ course }) {
-  const [selectedCourse, setSelectedCourse] = useState(null);
-  const [showCourseModal, setShowCourseModal] = useState(false);
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
-
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
@@ -25,58 +21,33 @@ function CourseCard({ course }) {
         animate={controls}
         key={course.id}
         variants={courseVariants.cardVariants}
-        className="bg-white rounded-xl shadow-md p-6 text-black w-full sm:w-[300px] transition-all"
+        className="rounded-xl bg-black/40 shadow-md p-6 text-white w-full transition-all"
       >
-        <img
-          src={course.image_url}
-          alt={course.title}
-          className="h-48 w-full object-cover rounded-md"
-        />
-        <h2 className="text-xl font-bold mt-2">{course.title}</h2>
-        <p className="text-sm text-gray-600 mt-1">
-          Duration: {course.duration}
-        </p>
-        <div className="mt-4 flex gap-2">
-          <button
-            onClick={() => {
-              setSelectedCourse(course);
-              setShowCourseModal(true);
-            }}
-            className="bg-violet-700 text-white px-4 py-2 rounded-lg hover:bg-violet-800"
-          >
-            More Info
-          </button>
-          <button
-            onClick={() => {
-              setSelectedCourse(course);
-              setShowRegisterModal(true);
-            }}
-            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
-          >
-            Register
-          </button>
+        <div
+          className={`flex flex-col-reverse md:flex-row ${
+            course.id % 2 === 1
+              ? "md:flex-row-reverse text-left"
+              : "md:flex-row text-right"
+          } items-center gap-4`}
+        >
+          <div className="w-full md:w-1/2">
+            <img
+              src={course.image_url}
+              alt={course.title}
+              className="h-96 w-full object-cover rounded-md"
+            />
+          </div>
+          <div className="w-full md:w-1/2 p-10">
+            <h2 className="text-4xl font-extrabold uppercase text-amber-300">
+              {course.title}
+            </h2>
+            <p className=" mt-2 text-lg">{course.description}</p>
+            <p className="text-md  mt-1 text-amber-500">
+              Duration: {course.duration}
+            </p>
+          </div>
         </div>
       </motion.div>
-
-      {showCourseModal && selectedCourse && (
-        <CourseModal
-          course={selectedCourse}
-          onClose={() => {
-            setSelectedCourse(null);
-            setShowCourseModal(false);
-          }}
-        />
-      )}
-
-      {showRegisterModal && selectedCourse && (
-        <RegisterModal
-          course={selectedCourse}
-          onClose={() => {
-            setSelectedCourse(null);
-            setShowRegisterModal(false);
-          }}
-        />
-      )}
     </div>
   );
 }

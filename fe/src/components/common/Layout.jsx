@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 
-function Layout({ children }) {
-
-
+function Layout({ children, classNames }) {
   return (
     <div className="min-h-screen bg-violet-900 text-white flex flex-col">
-      {/* Navbar */}
-  <Navbar/>
+      <Navbar />
 
-    
-
-      {/* Main Content */}
-      <main className="flex-1 p-4 sm:p-6 md:p-10">{children}</main>
+      <main className="flex-1 p-4 sm:p-6 md:p-10 md:px-20">{children}</main>
     </div>
   );
 }

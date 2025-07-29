@@ -1,8 +1,8 @@
 import React from "react";
 
-function Navinnerwrapper({ path, name }) {
+function Navinnerwrapper({ path, name, key }) {
   return (
-    <a href={path} className="hover:underline uppercase font-semibold cursor-pointer">
+    <a href={path} className="hover:underline uppercase font-semibold cursor-pointer" key={key}> 
       {name}
     </a>
   );
