@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navinnerwrapper from "./Navinnerwrapper";
 import { paths } from "../../assets/navbarpaths";
 
-function Navbar() {
+function Navbar({classNames}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -12,10 +12,15 @@ function Navbar() {
 
   return (
     <>
-      <header className="w-full px-10 py-4 bg-violet-800 shadow-md flex justify-between items-center">
+      <header className={`w-full px-10 py-4 shadow-md flex justify-between items-center z-10 ${classNames}`}>
         <nav className="space-x-4 hidden sm:flex w-full justify-between">
-          <img src="/images/siteLogo.png" className="" />
-          <div className="flex flex-row justify-between items-center gap-10">
+    
+        <div className="text-4xl font-extrabold permanent-marker-regular">
+GameForge
+
+        </div>
+
+          <div className="flex flex-row justify-between items-center gap-10 permanent-marker-regular">
             {paths.map((paths, index) => (
               <Navinnerwrapper
                 path={paths.path}
@@ -70,8 +75,9 @@ function Navbar() {
             {paths.map((path, index) => (
               <a
                 href={path.path}
-                className="block hover:underline"
+                className="block hover:underline permanent-marker-regular"
                 onClick={toggleMenu}
+                key={index}
               >
                 {path.name}
               </a>

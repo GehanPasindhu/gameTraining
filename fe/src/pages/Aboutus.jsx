@@ -30,7 +30,9 @@ function Aboutus() {
             transition: { duration: 1, ease: "easeOut" },
           },
         }}
-        className="flex flex-col-reverse md:flex-row items-center md:items-start gap-8 py-20 px-4 md:px-16 bg-gradient-to-br from-violet-900 to-violet-700 text-white rounded-3xl"
+        className="
+        mt-10
+        flex flex-col-reverse md:flex-row items-center md:items-start gap-8 py-20 px-4 md:px-16 bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] text-white rounded-3xl"
       >
         <div className="md:w-1/2 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">

@@ -5,6 +5,7 @@ import Layout from "../components/common/Layout";
 import MainTitle from "../components/common/MainTitle";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import RegistrationFrom from "../components/forms/RegistrationFrom";
 
 function Courses() {
   const [courses, setCourses] = useState([]);
@@ -39,7 +40,7 @@ function Courses() {
               transition: { duration: 1, ease: "easeOut" },
             },
           }}
-          className="flex flex-col items-center text-center px-4 mt-16"
+          className="flex flex-col items-center text-center px-4 mt-10"
         >
           <p className="text-xl text-violet-100 mb-10">
             Explore hands-on courses crafted by industry experts in Unity,
@@ -54,6 +55,9 @@ function Courses() {
             ))}
           </div>
         </motion.div>
+
+
+        <RegistrationFrom/>
       </Layout>
     </>
   );

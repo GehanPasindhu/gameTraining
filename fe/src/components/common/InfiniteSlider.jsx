@@ -14,7 +14,7 @@ function InfiniteSlider() {
   ];
 
   return (
-<div className="-mx-20 bg-black w-screen overflow-hidden whitespace-nowrap py-4">
+<div className=" bg-black w-screen overflow-hidden whitespace-nowrap py-4">
       <motion.div
         className="inline-flex space-x-10 text-white text-lg font-semibold uppercase"
         animate={{ x: ["0%", "-50%"] }}
